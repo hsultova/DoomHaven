@@ -1,9 +1,9 @@
 using System;
 
 [Serializable]
-public class EnemyData
+public class EnemyData : IAsset
 {
-	public string ID;
+	public string ID { get; set; }
 	public int Health;
 	public int Damage;
 	public string PrefabID;

@@ -5,4 +5,34 @@ using UnityEngine;
 public class AssetDataContext : ScriptableObject
 {
 	public List<AssetData> Assets;
+
+	public AssetData GetAssetDataByID(string ID)
+	{
+		AssetData data = null;
+		data = Assets.GetDataByID(ID);
+
+		return data;
+	}
+
+	public Sprite GetAssetSpriteByID(string ID)
+	{
+		AssetData asset = GetAssetDataByID(ID);
+		if (asset == null)
+		{
+			return null;
+		}
+
+		return asset.Sprite;
+	}
+
+	public GameObject GetAssetPrefabByID(string ID)
+	{
+		AssetData asset = GetAssetDataByID(ID);
+		if (asset == null)
+		{
+			return null;
+		}
+
+		return asset.Prefab;
+	}
 }

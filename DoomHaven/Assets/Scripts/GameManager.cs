@@ -11,16 +11,17 @@ public class GameManager : MonoBehaviour
 	public AssetDataContext AssetData;
 	public GameDataContext GameData;
 
+	public BoardManager BoardManager;
+
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		BoardManager.InitBoardWithTiles(BoardManager.DebugTile);
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-
 	}
 
 #if UNITY_EDITOR
@@ -36,10 +37,12 @@ public class GameManager : MonoBehaviour
 	[ContextMenu("Deserialize Context")]
 	public void DeserializeContext()
 	{
-		if (!string.IsNullOrEmpty(GameDataRepository.text)) {
+		if (!string.IsNullOrEmpty(GameDataRepository.text))
+		{
 			GameData = JsonUtility.FromJson<GameDataContext>(GameDataRepository.text);
 		}
-		else {
+		else
+		{
 			GameData = new GameDataContext();
 		}
 	}

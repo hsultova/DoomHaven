@@ -8,5 +8,6 @@ public class GameDataContext
 {
 	public List<EnemyData> Enemies;
 	public List<CardData> Cards;
+
 	//Actions
 }

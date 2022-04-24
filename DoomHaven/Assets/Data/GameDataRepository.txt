@@ -1,7 +1,7 @@
 {
     "Enemies": [
         {
-            "ID": "BasicOrc",
+            "<ID>k__BackingField": "BasicOrk",
             "Health": 10,
             "Damage": 4,
             "PrefabID": ""
@@ -9,19 +9,19 @@
     ],
     "Cards": [
         {
-            "ID": "TestAbility",
+            "<ID>k__BackingField": "SuperPower",
             "DisplayName": "SUPER DUPER POWER",
             "ArtID": "SwordSprite",
             "Abilities": []
         },
         {
-            "ID": "SecondTestAbility",
+            "<ID>k__BackingField": "SecondSuperPower",
             "DisplayName": "SECOND SUPER DUPER POWER!",
             "ArtID": "",
             "Abilities": []
         },
         {
-            "ID": "SwordAttack",
+            "<ID>k__BackingField": "HackAndSlash",
             "DisplayName": "Hack and Slash!",
             "ArtID": "",
             "Abilities": []

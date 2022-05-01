@@ -14,15 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Assets:
   - <ID>k__BackingField: p0
-    Sprite: {fileID: 0}
     Sprites: []
     Prefab: {fileID: 5148100238359550226, guid: 31c538756b6cfc84095bfd180f3af9fc, type: 3}
   - <ID>k__BackingField: o1
-    Sprite: {fileID: 0}
     Sprites: []
     Prefab: {fileID: 990293539329847663, guid: f067311c3aa8de0499d1f02aba193765, type: 3}
   - <ID>k__BackingField: f
-    Sprite: {fileID: 0}
     Sprites:
     - {fileID: 21300000, guid: f62483fa4a666694d9653b0e70a4fcde, type: 3}
     - {fileID: 21300000, guid: 65b6dd67086b2a345bcd1bec80cc5689, type: 3}
@@ -34,34 +31,34 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 8e75ae6b0c4e81d42b504b9b9882545d, type: 3}
     Prefab: {fileID: 0}
   - <ID>k__BackingField: wr
-    Sprite: {fileID: 21300000, guid: 36fcb03d0032f8e4495e04a353777273, type: 3}
-    Sprites: []
+    Sprites:
+    - {fileID: 21300000, guid: 36fcb03d0032f8e4495e04a353777273, type: 3}
     Prefab: {fileID: 0}
   - <ID>k__BackingField: wl
-    Sprite: {fileID: 21300000, guid: 82de7fe44d1dc9a4ab96c3ade396eee8, type: 3}
-    Sprites: []
+    Sprites:
+    - {fileID: 21300000, guid: 82de7fe44d1dc9a4ab96c3ade396eee8, type: 3}
     Prefab: {fileID: 0}
   - <ID>k__BackingField: wu
-    Sprite: {fileID: 21300000, guid: bc5e0eadd33cdb74fb2b5ed1d2c9e654, type: 3}
-    Sprites: []
+    Sprites:
+    - {fileID: 21300000, guid: bc5e0eadd33cdb74fb2b5ed1d2c9e654, type: 3}
     Prefab: {fileID: 0}
   - <ID>k__BackingField: wd
-    Sprite: {fileID: 21300000, guid: bc5e0eadd33cdb74fb2b5ed1d2c9e654, type: 3}
-    Sprites: []
+    Sprites:
+    - {fileID: 21300000, guid: bc5e0eadd33cdb74fb2b5ed1d2c9e654, type: 3}
     Prefab: {fileID: 0}
   - <ID>k__BackingField: wcul
-    Sprite: {fileID: 21300000, guid: 82de7fe44d1dc9a4ab96c3ade396eee8, type: 3}
-    Sprites: []
+    Sprites:
+    - {fileID: 21300000, guid: 82de7fe44d1dc9a4ab96c3ade396eee8, type: 3}
     Prefab: {fileID: 0}
   - <ID>k__BackingField: wcur
-    Sprite: {fileID: 21300000, guid: 36fcb03d0032f8e4495e04a353777273, type: 3}
-    Sprites: []
+    Sprites:
+    - {fileID: 21300000, guid: 36fcb03d0032f8e4495e04a353777273, type: 3}
     Prefab: {fileID: 0}
   - <ID>k__BackingField: wcdl
-    Sprite: {fileID: 21300000, guid: 82de7fe44d1dc9a4ab96c3ade396eee8, type: 3}
-    Sprites: []
+    Sprites:
+    - {fileID: 21300000, guid: 82de7fe44d1dc9a4ab96c3ade396eee8, type: 3}
     Prefab: {fileID: 0}
   - <ID>k__BackingField: wcdr
-    Sprite: {fileID: 21300000, guid: 36fcb03d0032f8e4495e04a353777273, type: 3}
-    Sprites: []
+    Sprites:
+    - {fileID: 21300000, guid: 36fcb03d0032f8e4495e04a353777273, type: 3}
     Prefab: {fileID: 0}

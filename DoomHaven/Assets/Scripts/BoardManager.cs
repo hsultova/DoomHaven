@@ -12,30 +12,12 @@ public class BoardManager : MonoBehaviour
 	public int Rows;
 	public int Columns;
 
+	public Tile CurrentHoveredTile;
+	public Tile LastClickedTile;
+
 	private Tile[,] _tiles;
 	private GameDataContext _gameData;
 	private AssetDataContext _assetData;
-
-	public void InitBoardWithTiles(GameObject tilePrefab)
-	{
-		foreach (Transform child in BoardRoot.transform) {
-			Destroy(child.gameObject);
-		}
-
-		for (int x = 0; x < Rows; x++)
-		{
-			for (int y = 0; y < Columns; y++)
-			{
-				GameObject newTileVisuals = Instantiate(tilePrefab, new Vector3(y, Rows - x, 0), tilePrefab.transform.rotation, BoardRoot.transform);
-
-				_tiles[x, y] = newTileVisuals.GetComponent<Tile>();
-				_tiles[x, y].X = x;
-				_tiles[x, y].Y = y;
-				_tiles[x, y].Visuals = newTileVisuals;
-				_tiles[x, y].DebugText.text = $"{_tiles[x, y].X}x{_tiles[x, y].Y}";
-			}
-		}
-	}
 
 	public void LoadLevel(LevelData level, GameDataContext gameData, AssetDataContext assetData)
 	{
@@ -56,6 +38,42 @@ public class BoardManager : MonoBehaviour
 		ParseWalkLayer(parsedWalkLayer);
 		ParseEnvLayer(parsedEnvLayer);
 		ParseInteractableLayer(parsedInterLayer);
+	}
+
+	private void InitBoardWithTiles(GameObject tilePrefab)
+	{
+		foreach (Transform child in BoardRoot.transform) {
+			Destroy(child.gameObject);
+		}
+
+		for (int x = 0; x < Rows; x++)
+		{
+			for (int y = 0; y < Columns; y++)
+			{
+				GameObject newTileVisuals = Instantiate(tilePrefab, new Vector3(y, Rows - x, 0), tilePrefab.transform.rotation, BoardRoot.transform);
+
+				_tiles[x, y] = newTileVisuals.GetComponent<Tile>();
+				_tiles[x, y].X = x;
+				_tiles[x, y].Y = y;
+				_tiles[x, y].Visuals = newTileVisuals;
+				_tiles[x, y].DebugText.text = $"{_tiles[x, y].X}x{_tiles[x, y].Y}";
+
+				_tiles[x, y].OnTileClicked += OnTileClicked;
+				_tiles[x, y].OnTileHovered += OnTileHovered;
+			}
+		}
+	}
+
+	private void OnTileHovered(Tile tile, bool isTileHovered)
+	{
+		if (isTileHovered) {
+			CurrentHoveredTile = tile;
+		}
+	}
+
+	private void OnTileClicked(Tile tile)
+	{
+		LastClickedTile = tile;
 	}
 
 	private void ParseWalkLayer(List<List<string>> layer)

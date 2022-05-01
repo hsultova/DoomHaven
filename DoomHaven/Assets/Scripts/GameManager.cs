@@ -27,7 +27,8 @@ public class GameManager : MonoBehaviour
 	public void LoadLevel(string levelID)
 	{
 		LevelData levelData = GameData.Levels.GetDataByID(levelID);
-		if (levelData == null) {
+		if (levelData == null)
+		{
 			Debug.Log($"Couldn't find level by the specified ID: {levelID}");
 		}
 

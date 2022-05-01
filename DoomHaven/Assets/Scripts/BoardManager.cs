@@ -42,7 +42,8 @@ public class BoardManager : MonoBehaviour
 
 	private void InitBoardWithTiles(GameObject tilePrefab)
 	{
-		foreach (Transform child in BoardRoot.transform) {
+		foreach (Transform child in BoardRoot.transform)
+		{
 			Destroy(child.gameObject);
 		}
 
@@ -66,7 +67,8 @@ public class BoardManager : MonoBehaviour
 
 	private void OnTileHovered(Tile tile, bool isTileHovered)
 	{
-		if (isTileHovered) {
+		if (isTileHovered)
+		{
 			CurrentHoveredTile = tile;
 		}
 	}
@@ -86,10 +88,12 @@ public class BoardManager : MonoBehaviour
 			for (int y = 0; y < Columns; y++)
 			{
 				string state = layer[x][y];
-				if (state == nonWalkableTile) {
+				if (state == nonWalkableTile)
+				{
 					_tiles[x, y].WalkableState = TileWalkableState.NonWalkable;
 				}
-				else if (state == walkableTile) {
+				else if (state == walkableTile)
+				{
 					_tiles[x, y].WalkableState = TileWalkableState.Walkable;
 				}
 			}
@@ -108,7 +112,8 @@ public class BoardManager : MonoBehaviour
 				if (data != null)
 				{
 					Sprite sprite = data.GetSpriteAtRandom();
-					if (sprite == null) {
+					if (sprite == null)
+					{
 						continue;
 					}
 
@@ -159,7 +164,7 @@ public class BoardManager : MonoBehaviour
 		var rows = new List<List<string>>();
 		List<string> tempRows = text.Split(Environment.NewLine).ToList();
 		tempRows.Remove(tempRows.Last());
-		
+
 		foreach (string row in tempRows)
 		{
 			List<string> tempRow = row.Split(',').ToList();

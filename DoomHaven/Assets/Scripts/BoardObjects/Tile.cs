@@ -24,24 +24,25 @@ public class Tile : MonoBehaviour
 	public int X;
 	public int Y;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+	// Start is called before the first frame update
+	void Start()
+	{
 		HoverAnimator.keepAnimatorControllerStateOnDisable = false;
 
 		HoverSprite.enabled = false;
 		HoverTile(false);
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
 
 	private void HoverTile(bool isTileHovered)
 	{
-		if (isTileHovered) {
+		if (isTileHovered)
+		{
 			//reset animation when the tile is hovered
 			HoverAnimator.Play("TileHighlightAnim", 0, 0f);
 		}

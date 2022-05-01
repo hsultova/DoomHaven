@@ -12,7 +12,8 @@ public class AssetData : IAsset
 
 	public Sprite GetSpriteAtRandom()
 	{
-		if (Sprites.Count == 0) {
+		if (Sprites.Count == 0)
+		{
 			return null;
 		}
 

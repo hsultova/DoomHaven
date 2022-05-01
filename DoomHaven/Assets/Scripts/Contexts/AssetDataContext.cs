@@ -22,7 +22,7 @@ public class AssetDataContext : ScriptableObject
 			return null;
 		}
 
-		return asset.Sprite;
+		return asset.GetSpriteAtRandom();
 	}
 
 	public GameObject GetAssetPrefabByID(string ID)

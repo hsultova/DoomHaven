@@ -12,6 +12,8 @@ public class Tile : MonoBehaviour
 	public SpriteRenderer ForegroundSprite;
 	public SpriteRenderer InteractibleSprite;
 
+	public TileWalkableState WalkableState = TileWalkableState.NonWalkable;
+
 	public int X;
 	public int Y;
 

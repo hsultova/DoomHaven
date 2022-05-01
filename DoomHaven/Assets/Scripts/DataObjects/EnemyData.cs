@@ -10,6 +10,7 @@ public class EnemyData : IAsset
 	public int Health;
 	public int Attack;
 	public int Movement;
+	public List<string> Cards;
+
 	public string PrefabID;
-	public List<string> Cards { get; set; }
 }

@@ -1,0 +1,8 @@
+wcul,wu,wu,wu,wu,wu,wu,wcur,
+wl,f,f,f,f,f,f,wr,
+wl,f,f,f,f,f,f,wr,
+wl,f,f,f,f,f,f,wr,
+wl,f,f,f,f,f,f,wr,
+wl,f,f,f,f,f,f,wr,
+wl,f,f,f,f,f,f,wr,
+wcdl,wd,wd,wd,wd,wd,wd,wcdr,

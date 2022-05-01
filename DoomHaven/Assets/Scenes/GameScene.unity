@@ -156,21 +156,64 @@ MonoBehaviour:
   GameDataRepository: {fileID: 4900000, guid: 6518472d4e750f7408ecde7a80542b45, type: 3}
   AssetData: {fileID: 11400000, guid: 0f695c69e40a5704b9cfcf9b3f13f551, type: 2}
   GameData:
-    Enemies:
-    - ID: BasicOrc
+    Levels:
+    - <ID>k__BackingField: lvl0
+      WalkLayer: {fileID: 4900000, guid: 1009e4c9957e4ca4a899957b1732f93b, type: 3}
+      EnvironmentLayer: {fileID: 4900000, guid: cc4aabfe4eec97f47af457bfc7cb2f28, type: 3}
+      InteractableLayer: {fileID: 4900000, guid: 9b1fc2ef4858ad1408945b7a6eb5e146, type: 3}
+    - <ID>k__BackingField: lvl1
+      WalkLayer: {fileID: 4900000, guid: 1009e4c9957e4ca4a899957b1732f93b, type: 3}
+      EnvironmentLayer: {fileID: 4900000, guid: cc4aabfe4eec97f47af457bfc7cb2f28, type: 3}
+      InteractableLayer: {fileID: 4900000, guid: 9b1fc2ef4858ad1408945b7a6eb5e146, type: 3}
+    - <ID>k__BackingField: lvl2
+      WalkLayer: {fileID: 0}
+      EnvironmentLayer: {fileID: 0}
+      InteractableLayer: {fileID: 0}
+    Players:
+    - <ID>k__BackingField: p0
       Health: 10
-      Damage: 4
+      Attack: 2
+      Movement: 0
+      Cards:
+      - HackMe!
+      - Power1
+      PrefabID: p0
+    - <ID>k__BackingField: p1
+      Health: 11
+      Attack: 3
+      Movement: 0
+      Cards:
+      - HackMe!
+      - Power1
+      - Power2
+      PrefabID: 
+    Enemies:
+    - <ID>k__BackingField: o1
+      Health: 10
+      Attack: 5
+      Movement: 2
+      Cards:
+      - asd
+      - bds
+      PrefabID: o1
+    - <ID>k__BackingField: o2
+      Health: 10
+      Attack: 5
+      Movement: 2
+      Cards:
+      - asd
+      - bds
       PrefabID: 
     Cards:
-    - ID: TestAbility
+    - <ID>k__BackingField: Power1
       DisplayName: SUPER DUPER POWER
       ArtID: SwordSprite
       Abilities: []
-    - ID: SecondTestAbility
+    - <ID>k__BackingField: Power2
       DisplayName: SECOND SUPER DUPER POWER!
       ArtID: 
       Abilities: []
-    - ID: SwordAttack
+    - <ID>k__BackingField: HackMe
       DisplayName: Hack and Slash!
       ArtID: 
       Abilities: []
@@ -203,10 +246,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugTile: {fileID: 5571369082498173674, guid: 9e1ac70ae4bd305449e74737ddf670aa, type: 3}
-  DefaultTile: {fileID: 0}
-  Root: {fileID: 1594067148}
-  Rows: 25
-  Columns: 25
+  DefaultTile: {fileID: 5571369082498173674, guid: e1dc5f8ba15f4374e8110c5da7b95a19, type: 3}
+  BoardRoot: {fileID: 1594067148}
+  CharactersRoot: {fileID: 2015696298}
+  Rows: 8
+  Columns: 8
 --- !u!1 &535447205
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +328,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535447205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.76, y: 6.91, z: -6.72}
+  m_LocalPosition: {x: 1, y: 5, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -415,4 +459,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2015696298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2015696299}
+  m_Layer: 0
+  m_Name: CharactersRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2015696299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015696298}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.198149, y: 5.8190236, z: -4.491779}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -1,27 +1,95 @@
 {
+    "Levels": [
+        {
+            "<ID>k__BackingField": "lvl0",
+            "WalkLayer": {
+                "instanceID": 25234
+            },
+            "EnvironmentLayer": {
+                "instanceID": 25230
+            },
+            "InteractableLayer": {
+                "instanceID": 25232
+            }
+        },
+        {
+            "<ID>k__BackingField": "lvl1",
+            "WalkLayer": {
+                "instanceID": 25234
+            },
+            "EnvironmentLayer": {
+                "instanceID": 25230
+            },
+            "InteractableLayer": {
+                "instanceID": 25232
+            }
+        },
+        {
+            "<ID>k__BackingField": "lvl2",
+            "WalkLayer": {
+                "instanceID": 0
+            },
+            "EnvironmentLayer": {
+                "instanceID": 0
+            },
+            "InteractableLayer": {
+                "instanceID": 0
+            }
+        }
+    ],
+    "Players": [
+        {
+            "<ID>k__BackingField": "P0",
+            "Health": 10,
+            "Attack": 2,
+            "Movement": 0,
+            "Cards": [
+                "HackMe!",
+                "Power1"
+            ],
+            "PrefabID": ""
+        },
+        {
+            "<ID>k__BackingField": "P1",
+            "Health": 11,
+            "Attack": 3,
+            "Movement": 0,
+            "Cards": [
+                "HackMe!",
+                "Power1",
+                "Power2"
+            ],
+            "PrefabID": ""
+        }
+    ],
     "Enemies": [
         {
-            "<ID>k__BackingField": "BasicOrk",
+            "<ID>k__BackingField": "o1",
             "Health": 10,
-            "Damage": 4,
+            "Attack": 5,
+            "Movement": 2,
+            "Cards": [
+                "asd",
+                "bds"
+            ],
             "PrefabID": ""
         }
     ],
     "Cards": [
         {
-            "<ID>k__BackingField": "SuperPower",
+            "<ID>k__BackingField": "Power1",
             "DisplayName": "SUPER DUPER POWER",
             "ArtID": "SwordSprite",
             "Abilities": []
         },
         {
-            "<ID>k__BackingField": "SecondSuperPower",
+            "<ID>k__BackingField": "Power2",
             "DisplayName": "SECOND SUPER DUPER POWER!",
             "ArtID": "",
             "Abilities": []
         },
         {
-            "<ID>k__BackingField": "HackAndSlash",
+            "<ID>k__BackingField": "HackMe",
             "DisplayName": "Hack and Slash!",
             "ArtID": "",
             "Abilities": []

@@ -16,12 +16,22 @@ public class GameManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		BoardManager.InitBoardWithTiles(BoardManager.DebugTile);
+		LoadDebugLevel();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+	}
+
+	public void LoadLevel(string levelID)
+	{
+		LevelData levelData = GameData.Levels.GetDataByID(levelID);
+		if (levelData == null) {
+			Debug.Log($"Couldn't find level by the specified ID: {levelID}");
+		}
+
+		BoardManager.LoadLevel(levelData, GameData, AssetData);
 	}
 
 #if UNITY_EDITOR
@@ -45,5 +55,11 @@ public class GameManager : MonoBehaviour
 		{
 			GameData = new GameDataContext();
 		}
+	}
+
+	[ContextMenu("Load Debug Level")]
+	public void LoadDebugLevel()
+	{
+		LoadLevel("lvl0");
 	}
 }

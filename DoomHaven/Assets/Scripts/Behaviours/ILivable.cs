@@ -1,6 +1,6 @@
 public interface ILivable
 {
-	public int Health { get; set; }
-	public int Attack { get; set; }
-	public int Movement { get; set; }
+	int Health { get; set; }
+	int Attack { get; set; }
+	int Movement { get; set; }
 }

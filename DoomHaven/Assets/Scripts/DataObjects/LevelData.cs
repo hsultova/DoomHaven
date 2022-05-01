@@ -4,13 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class PlayerData : IAsset
+public class LevelData : IAsset
 {
 	[field: SerializeField]
 	public string ID { get; set; }
-	public int Health;
-	public int Attack;
-	public int Movement;
-	public List<string> Cards;
-	public string PrefabID;
+	public TextAsset WalkLayer;
+	public TextAsset EnvironmentLayer;
+	public TextAsset InteractableLayer;
 }

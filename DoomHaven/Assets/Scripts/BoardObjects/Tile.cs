@@ -24,6 +24,10 @@ public class Tile : MonoBehaviour
 	public int X;
 	public int Y;
 
+	public IController CurrentController;
+
+	public bool IsEmpty => CurrentController != null;
+
 	// Start is called before the first frame update
 	void Start()
 	{

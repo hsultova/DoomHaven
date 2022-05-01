@@ -76,6 +76,19 @@ public class BoardManager : MonoBehaviour
 	private void OnTileClicked(Tile tile)
 	{
 		LastClickedTile = tile;
+		IController controller = tile.CurrentController;
+		if (controller == null)
+		{
+			Debug.Log("Empty tile.");
+		}
+		else if(controller is PlayerController player)
+		{
+			Debug.Log($"Tile with palyer.\nHealth: {player.Health} Attack: {player.Attack}");
+		}
+		else if (controller is EnemyController enemy)
+		{
+			Debug.Log($"Tile with enemy.\nHealth: {enemy.Health} Attack: {enemy.Attack}");
+		}
 	}
 
 	private void ParseWalkLayer(List<List<string>> layer)
@@ -135,8 +148,7 @@ public class BoardManager : MonoBehaviour
 				if (player != null)
 				{
 					GameObject playerPrefab = _assetData.GetAssetPrefabByID(player.PrefabID);
-					CreateInteractableElementAt(x, y, playerPrefab, CharactersRoot);
-					//Instantiate(playerPrefab, _tiles[x, y].transform.position, playerPrefab.transform.rotation, CharactersRoot.transform);
+					CreateControllerAt<PlayerController>(x, y, playerPrefab, CharactersRoot, player);
 
 					continue;
 				}
@@ -145,8 +157,7 @@ public class BoardManager : MonoBehaviour
 				if (enemy != null)
 				{
 					GameObject enemyPrefab = _assetData.GetAssetPrefabByID(enemy.PrefabID);
-					CreateInteractableElementAt(x, y, enemyPrefab, CharactersRoot);
-					//Instantiate(enemyPrefab, _tiles[x, y].transform.position, enemyPrefab.transform.rotation, CharactersRoot.transform);
+					CreateControllerAt<EnemyController>(x, y, enemyPrefab, CharactersRoot, enemy);
 
 					continue;
 				}
@@ -154,9 +165,14 @@ public class BoardManager : MonoBehaviour
 		}
 	}
 
-	private void CreateInteractableElementAt(int x, int y, GameObject prefab, GameObject root)
+	private void CreateControllerAt<T>(int x, int y, GameObject prefab, GameObject root, IAsset data)
+		where T : IController
 	{
 		Instantiate(prefab, _tiles[x, y].transform.position, prefab.transform.rotation, root.transform);
+		T controller = prefab.GetComponent<T>();
+		controller.CurrentTile = _tiles[x, y];
+		controller.SetData(data);
+		_tiles[x, y].CurrentController = controller;
 	}
 
 	private List<List<string>> ParseTextToRows(string text)

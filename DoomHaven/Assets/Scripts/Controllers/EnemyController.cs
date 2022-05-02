@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour, ILivable, IController
+public class EnemyController : MonoBehaviour, ILivable, IController, IInitiative
 {
 	public Tile CurrentTile { get; set; }
 	public int Health { get; set; }
 	public int Attack { get; set; }
 	public int Movement { get; set; }
-	public List<string> Cards { get; set; }
-	public List<string> DiscardedCards { get; set; }
+	public int Initiative { get; set; }
+
+	public List<CardData> Cards;
+	public List<CardData> DiscardedCards;
 
 	// Start is called before the first frame update
 	void Start()
@@ -22,7 +24,7 @@ public class EnemyController : MonoBehaviour, ILivable, IController
 	{
 
 	}
-	public void SetData(IAsset data)
+	public void SetData(IAsset data, GameDataContext gameDataContext)
 	{
 		var enemyData = data as EnemyData;
 		if (enemyData == null)
@@ -34,6 +36,6 @@ public class EnemyController : MonoBehaviour, ILivable, IController
 		Health = enemyData.Health;
 		Attack = enemyData.Attack;
 		Movement = enemyData.Movement;
-		Cards = enemyData.Cards;
+		Cards = gameDataContext.GetCardsFromData(enemyData.Cards);
 	}
 }

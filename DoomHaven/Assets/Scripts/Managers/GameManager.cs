@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 	public GameDataContext GameData;
 
 	public BoardManager BoardManager;
+	public RoundManager RoundManager;
 
 	// Start is called before the first frame update
 	void Start()

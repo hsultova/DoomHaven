@@ -1,5 +1,5 @@
 ﻿public interface IController
 {
 	Tile CurrentTile { get; set; }
-	void SetData(IAsset data);
+	void SetData(IAsset data, GameDataContext gameDataContext);
 }

@@ -169,9 +169,11 @@ public class BoardManager : MonoBehaviour
 		where T : IController
 	{
 		Instantiate(prefab, _tiles[x, y].transform.position, prefab.transform.rotation, root.transform);
+
 		T controller = prefab.GetComponent<T>();
 		controller.CurrentTile = _tiles[x, y];
-		controller.SetData(data);
+		controller.SetData(data, _gameData);
+
 		_tiles[x, y].CurrentController = controller;
 	}
 

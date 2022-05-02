@@ -7,6 +7,7 @@ public class EnemyData : IAsset
 {
 	[field: SerializeField]
 	public string ID { get; set; }
+	public string DisplayName;
 	public int Health;
 	public int Attack;
 	public int Movement;

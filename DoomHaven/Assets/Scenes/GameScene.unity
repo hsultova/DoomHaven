@@ -213,7 +213,7 @@ MonoBehaviour:
       DisplayName: SECOND SUPER DUPER POWER!
       ArtID: 
       Abilities: []
-    - <ID>k__BackingField: HackMe
+    - <ID>k__BackingField: HackMe!
       DisplayName: Hack and Slash!
       ArtID: 
       Abilities: []
@@ -251,6 +251,8 @@ MonoBehaviour:
   CharactersRoot: {fileID: 2015696298}
   Rows: 8
   Columns: 8
+  CurrentHoveredTile: {fileID: 0}
+  LastClickedTile: {fileID: 0}
 --- !u!1 &535447205
 GameObject:
   m_ObjectHideFlags: 0

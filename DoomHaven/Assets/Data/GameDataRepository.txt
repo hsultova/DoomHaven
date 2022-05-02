@@ -3,25 +3,25 @@
         {
             "<ID>k__BackingField": "lvl0",
             "WalkLayer": {
-                "instanceID": 25234
+                "instanceID": 22818
             },
             "EnvironmentLayer": {
-                "instanceID": 25230
+                "instanceID": 22820
             },
             "InteractableLayer": {
-                "instanceID": 25232
+                "instanceID": 22822
             }
         },
         {
             "<ID>k__BackingField": "lvl1",
             "WalkLayer": {
-                "instanceID": 25234
+                "instanceID": 22818
             },
             "EnvironmentLayer": {
-                "instanceID": 25230
+                "instanceID": 22820
             },
             "InteractableLayer": {
-                "instanceID": 25232
+                "instanceID": 22822
             }
         },
         {
@@ -39,7 +39,8 @@
     ],
     "Players": [
         {
-            "<ID>k__BackingField": "P0",
+            "<ID>k__BackingField": "p0",
+            "DisplayName": "",
             "Health": 10,
             "Attack": 2,
             "Movement": 0,
@@ -47,10 +48,11 @@
                 "HackMe!",
                 "Power1"
             ],
-            "PrefabID": ""
+            "PrefabID": "p0"
         },
         {
-            "<ID>k__BackingField": "P1",
+            "<ID>k__BackingField": "p1",
+            "DisplayName": "",
             "Health": 11,
             "Attack": 3,
             "Movement": 0,
@@ -65,6 +67,19 @@
     "Enemies": [
         {
             "<ID>k__BackingField": "o1",
+            "DisplayName": "",
+            "Health": 10,
+            "Attack": 5,
+            "Movement": 2,
+            "Cards": [
+                "asd",
+                "bds"
+            ],
+            "PrefabID": "o1"
+        },
+        {
+            "<ID>k__BackingField": "o2",
+            "DisplayName": "",
             "Health": 10,
             "Attack": 5,
             "Movement": 2,
@@ -89,7 +104,7 @@
             "Abilities": []
         },
         {
-            "<ID>k__BackingField": "HackMe",
+            "<ID>k__BackingField": "HackMe!",
             "DisplayName": "Hack and Slash!",
             "ArtID": "",
             "Abilities": []

@@ -223,7 +223,7 @@ MonoBehaviour:
       Abilities: []
   BoardManager: {fileID: 162152355}
   RoundManager: {fileID: 0}
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 2006620587}
 --- !u!4 &162152354
 Transform:
   m_ObjectHideFlags: 0

@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour, ILivable, IController, IInitiativ
 			return;
 		}
 
-		DisplayName= playerData.DisplayName;
+		DisplayName = playerData.DisplayName;
 		Health = playerData.Health;
 		Attack = playerData.Attack;
 		Movement = playerData.Movement;

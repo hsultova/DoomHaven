@@ -15,6 +15,16 @@ public class TileInformation : MonoBehaviour
 	void Start()
 	{
 		gameObject.SetActive(false);
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
+
+	public void Initialize()
+	{
 		BoardManager.BoardReady += OnBoardReady;
 	}
 
@@ -58,11 +68,5 @@ public class TileInformation : MonoBehaviour
 		{
 			gameObject.SetActive(false);
 		}
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
 	}
 }

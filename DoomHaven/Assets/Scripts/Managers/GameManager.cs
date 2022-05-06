@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
 	public void LoadLevel(string levelID)
 	{
+		UIManager.Initialize();
+
 		LevelData levelData = GameData.Levels.GetDataByID(levelID);
 		if (levelData == null)
 		{

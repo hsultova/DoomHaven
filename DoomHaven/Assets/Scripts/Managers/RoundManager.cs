@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class RoundManager
+public class RoundManager : MonoBehaviour
 {
 	public BoardManager BoardManager;
+
+	[HideInInspector]
 	public GameDataContext GameData;
 
 	public int Rounds = 0;

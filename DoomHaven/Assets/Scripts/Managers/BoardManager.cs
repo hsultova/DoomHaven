@@ -19,25 +19,33 @@ public class BoardManager : MonoBehaviour
 	private GameDataContext _gameData;
 	private AssetDataContext _assetData;
 
+	private LevelParser _levelParser;
+
 	public void LoadLevel(LevelData level, GameDataContext gameData, AssetDataContext assetData)
 	{
 		_assetData = assetData;
 		_gameData = gameData;
 
-		List<List<string>> parsedWalkLayer = ParseTextToRows(level.WalkLayer.text);
-		List<List<string>> parsedEnvLayer = ParseTextToRows(level.EnvironmentLayer.text);
-		List<List<string>> parsedInterLayer = ParseTextToRows(level.InteractableLayer.text);
+		_levelParser = new LevelParser();
+		_levelParser.ParseLevel(level);
 
 		//Init the grid with the proper dimensions and empty cells
-		Rows = Columns = parsedWalkLayer.Count;
+		int levelDimensions = _levelParser.GetLevelDimensions();
+		if (levelDimensions < 0) {
+			Debug.LogError($"Level is not yet parsed. Level dimensions are {levelDimensions}.");
+
+			return;
+		}
+
+		Rows = Columns = levelDimensions;
 		_tiles = new Tile[Rows, Columns];
 
 		InitBoardWithTiles(DefaultTile);
 
-		//Parse the layer to get proper tile states for walkability
-		ParseWalkLayer(parsedWalkLayer);
-		ParseEnvLayer(parsedEnvLayer);
-		ParseInteractableLayer(parsedInterLayer);
+		//Prepare the layer to get proper tile states for walkability
+		PrepareWalkLayer();
+		PrepareEnvLayer();
+		PrepareInteractableLayer();
 	}
 
 	private void InitBoardWithTiles(GameObject tilePrefab)
@@ -83,15 +91,15 @@ public class BoardManager : MonoBehaviour
 		}
 		else if(controller is PlayerController player)
 		{
-			Debug.Log($"Tile with palyer.\nHealth: {player.Health} Attack: {player.Attack}");
+			Debug.Log($"Tile with palyer.{Environment.NewLine}Health: {player.Health} Attack: {player.Attack}");
 		}
 		else if (controller is EnemyController enemy)
 		{
-			Debug.Log($"Tile with enemy.\nHealth: {enemy.Health} Attack: {enemy.Attack}");
+			Debug.Log($"Tile with enemy.{Environment.NewLine}Health: {enemy.Health} Attack: {enemy.Attack}");
 		}
 	}
 
-	private void ParseWalkLayer(List<List<string>> layer)
+	private void PrepareWalkLayer()
 	{
 		string nonWalkableTile = "0";
 		string walkableTile = "1";
@@ -100,7 +108,8 @@ public class BoardManager : MonoBehaviour
 		{
 			for (int y = 0; y < Columns; y++)
 			{
-				string state = layer[x][y];
+				string state = _levelParser.GetStateForXY(LevelLayer.Walkable, x, y);
+
 				if (state == nonWalkableTile)
 				{
 					_tiles[x, y].WalkableState = TileWalkableState.NonWalkable;
@@ -113,13 +122,13 @@ public class BoardManager : MonoBehaviour
 		}
 	}
 
-	private void ParseEnvLayer(List<List<string>> layer)
+	private void PrepareEnvLayer()
 	{
 		for (int x = 0; x < Rows; x++)
 		{
 			for (int y = 0; y < Columns; y++)
 			{
-				string state = layer[x][y];
+				string state = _levelParser.GetStateForXY(LevelLayer.Environment, x, y);
 
 				AssetData data = _assetData.Assets.GetDataByID(state);
 				if (data != null)
@@ -136,13 +145,13 @@ public class BoardManager : MonoBehaviour
 		}
 	}
 
-	private void ParseInteractableLayer(List<List<string>> layer)
+	private void PrepareInteractableLayer()
 	{
 		for (int x = 0; x < Rows; x++)
 		{
 			for (int y = 0; y < Columns; y++)
 			{
-				string state = layer[x][y];
+				string state = _levelParser.GetStateForXY(LevelLayer.Interactions, x, y);
 
 				PlayerData player = _gameData.Players.GetDataByID(state);
 				if (player != null)

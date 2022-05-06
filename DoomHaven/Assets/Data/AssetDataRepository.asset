@@ -19,6 +19,9 @@ MonoBehaviour:
   - <ID>k__BackingField: o1
     Sprites: []
     Prefab: {fileID: 990293539329847663, guid: f067311c3aa8de0499d1f02aba193765, type: 3}
+  - <ID>k__BackingField: o2
+    Sprites: []
+    Prefab: {fileID: 990293539329847663, guid: f067311c3aa8de0499d1f02aba193765, type: 3}
   - <ID>k__BackingField: f
     Sprites:
     - {fileID: 21300000, guid: f62483fa4a666694d9653b0e70a4fcde, type: 3}

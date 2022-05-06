@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, ILivable, IController, IInitiative
 {
 	public Tile CurrentTile { get; set; }
+	public string DisplayName;
 	public int Health { get; set; }
 	public int Attack { get; set; }
 	public int Movement { get; set; }
@@ -33,6 +34,7 @@ public class EnemyController : MonoBehaviour, ILivable, IController, IInitiative
 			return;
 		}
 
+		DisplayName = enemyData.DisplayName;
 		Health = enemyData.Health;
 		Attack = enemyData.Attack;
 		Movement = enemyData.Movement;

@@ -21,6 +21,9 @@ public class BoardManager : MonoBehaviour
 
 	private LevelParser _levelParser;
 
+	public Tile[,] Tiles => _tiles;
+	public Action BoardReady;
+
 	public void LoadLevel(LevelData level, GameDataContext gameData, AssetDataContext assetData)
 	{
 		_assetData = assetData;
@@ -31,7 +34,8 @@ public class BoardManager : MonoBehaviour
 
 		//Init the grid with the proper dimensions and empty cells
 		int levelDimensions = _levelParser.GetLevelDimensions();
-		if (levelDimensions < 0) {
+		if (levelDimensions < 0)
+		{
 			Debug.LogError($"Level is not yet parsed. Level dimensions are {levelDimensions}.");
 
 			return;
@@ -46,6 +50,7 @@ public class BoardManager : MonoBehaviour
 		PrepareWalkLayer();
 		PrepareEnvLayer();
 		PrepareInteractableLayer();
+		BoardReady?.Invoke();
 	}
 
 	private void InitBoardWithTiles(GameObject tilePrefab)
@@ -67,8 +72,8 @@ public class BoardManager : MonoBehaviour
 				_tiles[x, y].Visuals = newTileVisuals;
 				_tiles[x, y].DebugText.text = $"{_tiles[x, y].X}x{_tiles[x, y].Y}";
 
-				_tiles[x, y].OnTileClicked += OnTileClicked;
-				_tiles[x, y].OnTileHovered += OnTileHovered;
+				_tiles[x, y].TileClicked += OnTileClicked;
+				_tiles[x, y].TileHovered += OnTileHovered;
 			}
 		}
 	}
@@ -89,13 +94,13 @@ public class BoardManager : MonoBehaviour
 		{
 			Debug.Log("Empty tile.");
 		}
-		else if(controller is PlayerController player)
+		else if (controller is PlayerController player)
 		{
-			Debug.Log($"Tile with palyer.{Environment.NewLine}Health: {player.Health} Attack: {player.Attack}");
+			Debug.Log($"Tile with palyer.{Environment.NewLine} Name: {player.DisplayName} Health: {player.Health} Attack: {player.Attack}");
 		}
 		else if (controller is EnemyController enemy)
 		{
-			Debug.Log($"Tile with enemy.{Environment.NewLine}Health: {enemy.Health} Attack: {enemy.Attack}");
+			Debug.Log($"Tile with enemy.{Environment.NewLine}Name: {enemy.DisplayName} Health: {enemy.Health} Attack: {enemy.Attack}");
 		}
 	}
 
@@ -177,9 +182,9 @@ public class BoardManager : MonoBehaviour
 	private void CreateControllerAt<T>(int x, int y, GameObject prefab, GameObject root, IAsset data)
 		where T : IController
 	{
-		Instantiate(prefab, _tiles[x, y].transform.position, prefab.transform.rotation, root.transform);
+		GameObject gameObject = Instantiate(prefab, _tiles[x, y].transform.position, prefab.transform.rotation, root.transform);
 
-		T controller = prefab.GetComponent<T>();
+		T controller = gameObject.GetComponent<T>();
 		controller.CurrentTile = _tiles[x, y];
 		controller.SetData(data, _gameData);
 

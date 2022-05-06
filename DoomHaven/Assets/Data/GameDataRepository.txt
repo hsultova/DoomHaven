@@ -3,25 +3,25 @@
         {
             "<ID>k__BackingField": "lvl0",
             "WalkLayer": {
-                "instanceID": 22818
+                "instanceID": 22882
             },
             "EnvironmentLayer": {
-                "instanceID": 22820
+                "instanceID": 22884
             },
             "InteractableLayer": {
-                "instanceID": 22822
+                "instanceID": 22886
             }
         },
         {
             "<ID>k__BackingField": "lvl1",
             "WalkLayer": {
-                "instanceID": 22818
+                "instanceID": 22882
             },
             "EnvironmentLayer": {
-                "instanceID": 22820
+                "instanceID": 22884
             },
             "InteractableLayer": {
-                "instanceID": 22822
+                "instanceID": 22886
             }
         },
         {
@@ -40,7 +40,7 @@
     "Players": [
         {
             "<ID>k__BackingField": "p0",
-            "DisplayName": "",
+            "DisplayName": "Player1",
             "Health": 10,
             "Attack": 2,
             "Movement": 0,
@@ -52,7 +52,7 @@
         },
         {
             "<ID>k__BackingField": "p1",
-            "DisplayName": "",
+            "DisplayName": "Player2",
             "Health": 11,
             "Attack": 3,
             "Movement": 0,
@@ -67,7 +67,7 @@
     "Enemies": [
         {
             "<ID>k__BackingField": "o1",
-            "DisplayName": "",
+            "DisplayName": "Ork",
             "Health": 10,
             "Attack": 5,
             "Movement": 2,
@@ -79,15 +79,15 @@
         },
         {
             "<ID>k__BackingField": "o2",
-            "DisplayName": "",
-            "Health": 10,
-            "Attack": 5,
+            "DisplayName": "Vermling Raider",
+            "Health": 15,
+            "Attack": 3,
             "Movement": 2,
             "Cards": [
                 "asd",
                 "bds"
             ],
-            "PrefabID": ""
+            "PrefabID": "o1"
         }
     ],
     "Cards": [

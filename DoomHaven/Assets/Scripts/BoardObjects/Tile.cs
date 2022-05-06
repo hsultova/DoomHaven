@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-	public Action<Tile, bool> OnTileHovered;
-	public Action<Tile> OnTileClicked;
+	public Action<Tile, bool> TileHovered;
+	public Action<Tile> TileClicked;
 
 	public GameObject Visuals;
 	public TMP_Text DebugText;
@@ -59,18 +59,18 @@ public class Tile : MonoBehaviour
 	{
 		HoverTile(true);
 
-		OnTileHovered?.Invoke(this, true);
+		TileHovered?.Invoke(this, true);
 	}
 
 	private void OnMouseExit()
 	{
 		HoverTile(false);
 
-		OnTileHovered?.Invoke(this, false);
+		TileHovered?.Invoke(this, false);
 	}
 
 	private void OnMouseDown()
 	{
-		OnTileClicked?.Invoke(this);
+		TileClicked?.Invoke(this);
 	}
 }

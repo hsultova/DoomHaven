@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour, ILivable, IController, IInitiative
+public class EnemyController : MonoBehaviour, ILivable, IController, IInitiative, IComparable
 {
 	public Tile CurrentTile { get; set; }
 	public string DisplayName;
@@ -39,5 +40,33 @@ public class EnemyController : MonoBehaviour, ILivable, IController, IInitiative
 		Attack = enemyData.Attack;
 		Movement = enemyData.Movement;
 		Cards = gameDataContext.GetCardsFromData(enemyData.Cards);
+	}
+
+	public int CompareTo(object compareTo)
+	{
+		if (compareTo is PlayerController pc)
+		{
+			if (Initiative > pc.Initiative)
+				return -1;
+
+			if (Initiative < pc.Initiative)
+				return 1;
+
+			if (Initiative == pc.Initiative)
+				return 0;
+		}
+		else if (compareTo is EnemyController ec)
+		{
+			if (Initiative > ec.Initiative)
+				return -1;
+
+			if (Initiative < ec.Initiative)
+				return 1;
+
+			if (Initiative == ec.Initiative)
+				return 0;
+		}
+
+		return 0;
 	}
 }

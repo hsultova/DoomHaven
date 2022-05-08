@@ -19,11 +19,20 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		LoadDebugLevel();
+		RoundManager.StartNewRound();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.Z))
+		{
+			RoundManager.StartNewTurn();
+		}
+		else if (Input.GetKeyDown(KeyCode.X))
+		{
+			RoundManager.FinishTurn();
+		}
 	}
 
 	public void LoadLevel(string levelID)

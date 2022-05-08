@@ -50,6 +50,7 @@ public class BoardManager : MonoBehaviour
 		PrepareWalkLayer();
 		PrepareEnvLayer();
 		PrepareInteractableLayer();
+
 		BoardReady?.Invoke();
 	}
 
